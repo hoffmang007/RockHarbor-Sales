@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Basswood Comps</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>
+        </span>
+        <span class="brand-name">Basswood Comps</span>
+      </div>
+      <div class="updated" id="updated"></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>515 Basswood Ave</h1>
+      <p class="sub">Rock Harbor Condominium · Nashville, TN 37209 · Sales from the last 10 years</p>
+    </section>
+
+    <section class="card filters" aria-label="Filters">
+      <div class="filter">
+        <span class="filter-label">Bedrooms</span>
+        <div class="segmented" id="bedFilter" role="group" aria-label="Bedrooms"></div>
+      </div>
+      <div class="filter">
+        <span class="filter-label" id="yearFilterLabel">Year of sale</span>
+        <div class="dropdown" id="yearDropdown">
+          <button class="dropdown-btn" id="yearBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-labelledby="yearFilterLabel yearBtnText">
+            <span id="yearBtnText">All years</span>
+          </button>
+          <div class="dropdown-panel" id="yearPanel" hidden>
+            <div class="dropdown-head">
+              <span>Choose one or more</span>
+              <button class="link-btn" id="yearAll" type="button">All years</button>
+            </div>
+            <div class="dropdown-list" id="yearList"></div>
+          </div>
+        </div>
+      </div>
+      <div class="filter filter-end">
+        <label class="check" id="multiWrap" hidden>
+          <input type="checkbox" id="multiToggle">
+          <span>Include group sales</span>
+        </label>
+        <button class="link-btn" id="resetBtn" type="button">Reset</button>
+      </div>
+    </section>
+
+    <section class="stats" id="stats" aria-label="Summary"></section>
+
+    <section class="card chart-card" aria-label="Sale prices over time">
+      <div class="chart-head">
+        <div>
+          <h2>Sale prices over time</h2>
+          <p class="chart-sub">Each dot is one sale. Hover over a dot for details.</p>
+        </div>
+        <div class="legend" id="legend"></div>
+      </div>
+      <div class="chart" id="chart">
+        <div class="tooltip" id="tooltip" hidden></div>
+      </div>
+    </section>
+
+    <section class="card table-card">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr id="headRow"></tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <div class="empty" id="empty" hidden>No sales match these filters.</div>
+    </section>
+
+    <footer class="foot">
+      <p>Data from the <a href="https://portal.padctn.org/OFS/WP/Home" target="_blank" rel="noopener">Davidson County Assessor of Property</a>. Transfers recorded at $0 (for example into a trust or LLC) are left out. Bedrooms and square footage are each unit's current county record.</p>
+      <p>To refresh the data, double-click <strong>Update data.bat</strong> in this folder, then reload this page.</p>
+    </footer>
+  </main>
+
+  <script src="data/sales.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
